@@ -10,9 +10,8 @@ import Foundation
 
 struct User  : Codable {
     
-    var id = UUID().uuidString
-    var name : String = ""
-    var mail : String = ""
-    
+    var id   :    String    = ""
+    var name :    String    = ""
+    var mail :    String    = ""
     
 }

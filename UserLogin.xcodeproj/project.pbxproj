@@ -19,6 +19,7 @@
 		B84707552953263800F1D566 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B84707542953263800F1D566 /* FirebaseFirestore */; };
 		B84707572953263800F1D566 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B84707562953263800F1D566 /* FirebaseFirestoreSwift */; };
 		B847075C29536E7500F1D566 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B847075B29536E7500F1D566 /* Model.swift */; };
+		B847075E2953717600F1D566 /* FirebaseUserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B847075D2953717600F1D566 /* FirebaseUserManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		B84707422953179800F1D566 /* UserLoginUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B847074F2953253000F1D566 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B847075B29536E7500F1D566 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		B847075D2953717600F1D566 /* FirebaseUserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUserManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +106,9 @@
 		B84707242953179400F1D566 /* UserLogin */ = {
 			isa = PBXGroup;
 			children = (
+				B84707272953179400F1D566 /* ContentView.swift */,
 				B84707252953179400F1D566 /* UserLoginApp.swift */,
+				B847075D2953717600F1D566 /* FirebaseUserManager.swift */,
 				B847075A2953316300F1D566 /* ViewModel */,
 				B84707592953315500F1D566 /* Views */,
 				B84707292953179800F1D566 /* Assets.xcassets */,
@@ -158,7 +162,6 @@
 		B847075A2953316300F1D566 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				B84707272953179400F1D566 /* ContentView.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				B847075C29536E7500F1D566 /* Model.swift in Sources */,
 				B84707282953179400F1D566 /* ContentView.swift in Sources */,
 				B84707262953179400F1D566 /* UserLoginApp.swift in Sources */,
+				B847075E2953717600F1D566 /* FirebaseUserManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
