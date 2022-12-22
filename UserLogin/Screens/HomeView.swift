@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+    @EnvironmentObject var firebaseUserManger : FirebaseUserManager
+
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Text(firebaseUserManger.user.mail)
+            Text(firebaseUserManger.user.id)
+
+        }
+
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(FirebaseUserManager())
+
     }
 }

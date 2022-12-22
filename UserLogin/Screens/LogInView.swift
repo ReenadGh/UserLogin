@@ -11,15 +11,20 @@ struct LogInView: View {
     @State var mail : String = ""
     @State var password : String = ""
     @State var errorMessage : String = ""
+    @EnvironmentObject var firebaseUserManger : FirebaseUserManager
 
     var body: some View {
+        
+        
         VStack  (alignment: .center){
+            
             Text("Log In")
                 .font(.largeTitle)
             MailTextFiledView(mail: $mail)
-            PasswordTextFiledView(password: $password)            
+            PasswordTextFiledView(password: $password)
+            
             Button {
-                
+                firebaseUserManger.logInToAccount(mail: mail, password: password)
             } label: {
                 Text("Log In")
                     .padding()
@@ -29,9 +34,6 @@ struct LogInView: View {
                     .cornerRadius(12)
             }
             
-            Text(errorMessage)
-                .foregroundColor(.red)
-
         }
     }
 }
@@ -39,6 +41,7 @@ struct LogInView: View {
 struct LogInView_Previews: PreviewProvider {
     static var previews: some View {
         LogInView()
+            .environmentObject(FirebaseUserManager())
     }
 }
 

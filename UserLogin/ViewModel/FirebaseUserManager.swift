@@ -40,6 +40,7 @@ class FirebaseUserManager : ViewModelBase {
         self.loadingState = .loading
         auth.signIn(withEmail: mail, password: password ){ _ , error in
             if let error = error {
+                print (error.localizedDescription)
                 self.loadingState = .failed(error: error.localizedDescription)
                 return
             }
