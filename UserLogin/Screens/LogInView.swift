@@ -17,16 +17,13 @@ struct LogInView: View {
             Text("Log In")
                 .font(.largeTitle)
             MailTextFiledView(mail: $mail)
-            PasswordTextFiledView(password: $password)
-            
-            
+            PasswordTextFiledView(password: $password)            
             Button {
                 
             } label: {
                 Text("Log In")
                     .padding()
                     .padding(.horizontal, 40)
-
                     .foregroundColor(.pink)
                     .background(Color.pink.opacity(0.2))
                     .cornerRadius(12)

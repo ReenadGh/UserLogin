@@ -16,9 +16,12 @@ struct MainView: View {
         if (isSplashViewActive){
             
             SplashView(isActive: $isSplashViewActive)
+        }else if firebaseUserManger.isUserLoggedin() {
+            
+            HomeView()
         }else {
             
-            Text("main")
+            LogInView()
         }
     }
 }

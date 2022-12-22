@@ -113,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				B84707252953179400F1D566 /* UserLoginApp.swift */,
-				B847075D2953717600F1D566 /* FirebaseUserManager.swift */,
+				B84707632954324800F1D566 /* Screens */,
 				B847075A2953316300F1D566 /* ViewModel */,
 				B84707592953315500F1D566 /* Views */,
 				B84707292953179800F1D566 /* Assets.xcassets */,
@@ -168,7 +168,7 @@
 		B847075A2953316300F1D566 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				B84707632954324800F1D566 /* Screens */,
+				B847075D2953717600F1D566 /* FirebaseUserManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
