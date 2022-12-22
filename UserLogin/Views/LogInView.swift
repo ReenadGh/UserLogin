@@ -47,7 +47,16 @@ struct LogInView_Previews: PreviewProvider {
             .environmentObject(FirebaseUserManager())
         
         
-        LoadingStateView(loa)
+        LogInStateView(loadingState: .constant(.loading))
+            .padding()
+            .previewLayout(.sizeThatFits)
+        
+        
+        MailTextFiledView(mail: .constant("test@test.com"))
+            .padding()
+            .previewLayout(.sizeThatFits)
+        
+        
     }
 }
 
@@ -100,6 +109,10 @@ struct LogInStateView: View {
         case .none:
             Text("")
                 
+        case .success:
+            Image(systemName: "checkmark.diamond.fill")
+                .imageScale(.large)
+                .foregroundColor(.green)
         }
     }
 }

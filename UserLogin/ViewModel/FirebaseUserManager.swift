@@ -10,7 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 enum LoadingState {
-    case loading, failed(error : String), none
+    case loading, success, failed(error : String), none
 }
 
 
@@ -62,8 +62,13 @@ class FirebaseUserManager : ViewModelBase {
                 self.loadingState = .failed(error: error.localizedDescription)
                 return
             }
-            self.loadingState = .none
-            self.fetchUser()
+            self.loadingState = .success
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.fetchUser()
+                self.loadingState = .none
+
+            }
             
         }
         
