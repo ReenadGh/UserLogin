@@ -27,7 +27,7 @@ struct SplashView: View {
         .onAppear{
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                isActive = false 
+                isActive = false
             }
         }
     }

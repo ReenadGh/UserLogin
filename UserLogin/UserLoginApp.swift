@@ -21,9 +21,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct UserLoginApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
+    @StateObject private var firebaseUserManager : FirebaseUserManager = FirebaseUserManager()
     var body: some Scene {
         WindowGroup {
-            SplashView(isActive: .constant(true))
+            MainView()
+                .environmentObject(firebaseUserManager)
+                
         }
     }
 }
