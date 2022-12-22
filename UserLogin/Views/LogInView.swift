@@ -10,13 +10,12 @@ import SwiftUI
 struct LogInView: View {
     @State var mail : String = ""
     @State var password : String = ""
-    @State var errorMessage : String = ""
     @EnvironmentObject var firebaseUserManger : FirebaseUserManager
 
     var body: some View {
         
         
-        VStack  (alignment: .center){
+        VStack  (alignment: .center , spacing: 20){
             
             Text("Log In")
                 .font(.largeTitle)
@@ -34,6 +33,10 @@ struct LogInView: View {
                     .cornerRadius(12)
             }
             
+            
+            LogInStateView(loadingState: $firebaseUserManger.loadingState)
+            
+ 
         }
     }
 }
@@ -42,6 +45,9 @@ struct LogInView_Previews: PreviewProvider {
     static var previews: some View {
         LogInView()
             .environmentObject(FirebaseUserManager())
+        
+        
+        LoadingStateView(loa)
     }
 }
 
@@ -74,5 +80,26 @@ struct PasswordTextFiledView: View {
         .background(Color.gray.opacity(0.2))
         .cornerRadius(20)
         .padding(.horizontal , 50)
+    }
+}
+
+
+struct LogInStateView: View {
+    @Binding var loadingState : LoadingState
+
+    var body: some View {
+        switch loadingState {
+        case .loading :
+            ProgressView()
+                .scaleEffect(1.5)
+        case .failed(error: let error):
+            Text(error)
+                .multilineTextAlignment(.center)
+                .padding()
+                .foregroundColor(.orange)
+        case .none:
+            Text("")
+                
+        }
     }
 }

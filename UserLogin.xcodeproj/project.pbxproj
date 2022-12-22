@@ -160,6 +160,7 @@
 		B84707592953315500F1D566 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B8470766295435C100F1D566 /* LogInView.swift */,
 				B84707272953179400F1D566 /* SplashView.swift */,
 			);
 			path = Views;
@@ -177,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				B84707612954323900F1D566 /* MainView.swift */,
-				B8470766295435C100F1D566 /* LogInView.swift */,
 				B84707642954333A00F1D566 /* HomeView.swift */,
 			);
 			path = Screens;

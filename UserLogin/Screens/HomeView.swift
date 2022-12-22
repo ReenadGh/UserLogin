@@ -12,8 +12,15 @@ struct HomeView: View {
 
     var body: some View {
         VStack {
+            Text(firebaseUserManger.user.name)
             Text(firebaseUserManger.user.mail)
             Text(firebaseUserManger.user.id)
+
+            Button {
+                firebaseUserManger.signOutFromAccout()
+            } label: {
+                Text("Sign Out ")
+            }
 
         }
 

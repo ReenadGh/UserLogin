@@ -8,9 +8,9 @@
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
-
+import FirebaseFirestoreSwift
 enum LoadingState {
-    case loading, success, failed(error : String), none
+    case loading, failed(error : String), none
 }
 
 
@@ -33,9 +33,27 @@ class FirebaseUserManager : ViewModelBase {
         auth = Auth.auth()
         firestore = Firestore.firestore()
         super.init()
+        self.fetchUser()
+
     }
     
-    
+    func fetchUser() {
+        
+        guard let userId = auth.currentUser?.uid else {return}
+
+        firestore.collection("users").document(userId).getDocument { documentSnapshot, error in
+            if let error = error {
+                print("DEBUG : log in fetching user  : \(error.localizedDescription)")
+                return
+            }
+            
+            guard let user = try? documentSnapshot?.data(as: User.self) else {return}
+            self.user = user
+        }
+
+        
+        
+    }
     func logInToAccount(mail : String , password : String ) {
         self.loadingState = .loading
         auth.signIn(withEmail: mail, password: password ){ _ , error in
@@ -44,11 +62,8 @@ class FirebaseUserManager : ViewModelBase {
                 self.loadingState = .failed(error: error.localizedDescription)
                 return
             }
-            guard let userid = self.auth.currentUser?.uid else {return}
-            self.user.id = userid
-            guard let mail  =  self.auth.currentUser?.email else {return}
-            self.user.mail = mail
-            self.loadingState = .success
+            self.loadingState = .none
+            self.fetchUser()
             
         }
         
@@ -56,6 +71,15 @@ class FirebaseUserManager : ViewModelBase {
     func isUserLoggedin()-> Bool {
         self.user.id != ""
     }
+    func signOutFromAccout () {
+        do{
+            try auth.signOut()
+            user = .init()
+        }catch {
+            print(error)
+        }
+    }
+    
     
     
 }
