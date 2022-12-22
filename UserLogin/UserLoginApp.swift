@@ -23,7 +23,7 @@ struct UserLoginApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashView(isActive: .constant(true))
         }
     }
 }

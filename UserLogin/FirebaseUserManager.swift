@@ -25,6 +25,7 @@ class FirebaseUserManager : ViewModelBase {
     
     @Published var user : User = .init()
 
+    
     let auth  : Auth
     let firestore : Firestore
     
@@ -52,5 +53,7 @@ class FirebaseUserManager : ViewModelBase {
         }
         
     }
+    
+    
     
 }
