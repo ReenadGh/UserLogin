@@ -9,7 +9,10 @@ import SwiftUI
 
 struct LogInView: View {
     @State var mail : String = ""
+    @State var phone : String = ""
     @State var password : String = ""
+    @State var verificationID : String?
+
     @EnvironmentObject var firebaseUserManger : FirebaseUserManager
 
     var body: some View {
@@ -22,8 +25,19 @@ struct LogInView: View {
             MailTextFiledView(mail: $mail)
             PasswordTextFiledView(password: $password)
             
+            Text("Or by phone number")
+            PhoneTextFiledView(phone: $phone)
+            
             Button {
+                if phone == ""{
                 firebaseUserManger.logInToAccount(mail: mail, password: password)
+                }
+                else {
+                    firebaseUserManger.logInToAccount(phoneNumber: "+966\(phone)") { verificationID in
+                        self.verificationID = verificationID
+                 
+                    }
+                }
             } label: {
                 Text("Log In")
                     .padding()
@@ -38,6 +52,17 @@ struct LogInView: View {
             
  
         }
+        
+        .overlay(
+            ZStack {
+    
+       if let verificationID = verificationID {
+        codeAddingView(verificationID: verificationID)
+                    
+                }
+            }
+            
+        )
     }
 }
 
@@ -56,7 +81,6 @@ struct LogInView_Previews: PreviewProvider {
             .padding()
             .previewLayout(.sizeThatFits)
         
-        
     }
 }
 
@@ -69,6 +93,26 @@ struct MailTextFiledView: View {
                 .padding()
             
         }
+        .foregroundColor(.gray)
+        .background(Color.gray.opacity(0.2))
+        .cornerRadius(20)
+        .padding(.horizontal , 50)
+    }
+}
+
+struct PhoneTextFiledView: View {
+    @Binding var phone : String
+
+    var body: some View {
+        HStack (spacing : 0){
+            Text("+966")
+                .foregroundColor(.black).bold()
+            TextField("phone" , text: $phone)
+                .keyboardType(.numberPad)
+                .padding()
+        }
+        .padding(.horizontal , 10)
+
         .foregroundColor(.gray)
         .background(Color.gray.opacity(0.2))
         .cornerRadius(20)

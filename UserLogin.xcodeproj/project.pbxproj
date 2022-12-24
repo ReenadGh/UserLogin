@@ -23,6 +23,7 @@
 		B84707622954323900F1D566 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84707612954323900F1D566 /* MainView.swift */; };
 		B84707652954333A00F1D566 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84707642954333A00F1D566 /* HomeView.swift */; };
 		B8470767295435C200F1D566 /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8470766295435C100F1D566 /* LogInView.swift */; };
+		B8C9D5D529574B5800A473BE /* codeAddingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C9D5D429574B5800A473BE /* codeAddingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,9 @@
 		B84707612954323900F1D566 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B84707642954333A00F1D566 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B8470766295435C100F1D566 /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		B8C9D5D0295720BD00A473BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B8C9D5D129572FAB00A473BE /* UserLogin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UserLogin.entitlements; sourceTree = "<group>"; };
+		B8C9D5D429574B5800A473BE /* codeAddingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = codeAddingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 		B84707242953179400F1D566 /* UserLogin */ = {
 			isa = PBXGroup;
 			children = (
+				B8C9D5D129572FAB00A473BE /* UserLogin.entitlements */,
+				B8C9D5D0295720BD00A473BE /* Info.plist */,
 				B84707252953179400F1D566 /* UserLoginApp.swift */,
 				B84707632954324800F1D566 /* Screens */,
 				B847075A2953316300F1D566 /* ViewModel */,
@@ -161,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				B8470766295435C100F1D566 /* LogInView.swift */,
+				B8C9D5D429574B5800A473BE /* codeAddingView.swift */,
 				B84707272953179400F1D566 /* SplashView.swift */,
 			);
 			path = Views;
@@ -326,6 +333,7 @@
 				B8470767295435C200F1D566 /* LogInView.swift in Sources */,
 				B84707282953179400F1D566 /* SplashView.swift in Sources */,
 				B84707262953179400F1D566 /* UserLoginApp.swift in Sources */,
+				B8C9D5D529574B5800A473BE /* codeAddingView.swift in Sources */,
 				B84707652954333A00F1D566 /* HomeView.swift in Sources */,
 				B84707622954323900F1D566 /* MainView.swift in Sources */,
 				B847075E2953717600F1D566 /* FirebaseUserManager.swift in Sources */,
@@ -484,12 +492,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = UserLogin/UserLogin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UserLogin/Preview Content\"";
 				DEVELOPMENT_TEAM = 89ZB275WFG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UserLogin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -513,12 +523,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = UserLogin/UserLogin.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UserLogin/Preview Content\"";
 				DEVELOPMENT_TEAM = 89ZB275WFG;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UserLogin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

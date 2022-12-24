@@ -73,6 +73,53 @@ class FirebaseUserManager : ViewModelBase {
         }
         
     }
+    func logInToAccount(phoneNumber : String , verificationID : @escaping (_ verificationID : String?)-> Void ) {
+        
+        self.loadingState = .loading
+        PhoneAuthProvider.provider()
+          .verifyPhoneNumber(phoneNumber, uiDelegate: nil) { verificationid, error in
+              if let error = error {
+                  self.loadingState = .failed(error: error.localizedDescription)
+                  print(error.localizedDescription)
+                return
+              }
+              verificationID(verificationid)
+          }
+        
+    }
+    
+    
+    func verifyToken(smsCode : String , verificationID : String? ){
+        self.loadingState = .loading
+
+        guard let verificationID = verificationID else {
+            self.loadingState = .failed(error: "try again later !")
+            return
+        }
+        let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationID , verificationCode: smsCode)
+        
+        auth.signIn(with: credential){ result , error in
+            if let error = error {
+                self.loadingState = .failed(error: error.localizedDescription)
+                return
+            }
+            self.loadingState = .success
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.fetchUser()
+                self.loadingState = .none
+
+            }
+
+            
+        }
+        
+        
+
+    }
+    
+    
+
     func isUserLoggedin()-> Bool {
         self.user.id != ""
     }
