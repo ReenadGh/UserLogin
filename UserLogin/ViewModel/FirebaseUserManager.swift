@@ -19,8 +19,6 @@ class ViewModelBase: ObservableObject {
     
 }
 
-
-
 class FirebaseUserManager : ViewModelBase {
     
     @Published var user : User = .init()
@@ -28,7 +26,7 @@ class FirebaseUserManager : ViewModelBase {
     let auth  : Auth
     let firestore : Firestore
     
-    
+     
     override init () {
         auth = Auth.auth()
         firestore = Firestore.firestore()

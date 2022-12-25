@@ -19,7 +19,7 @@ struct HomeView: View {
             Button {
                 firebaseUserManger.signOutFromAccout()
             } label: {
-                Text("Sign Out ")
+                Text("Sign Out")
             }
 
         }
