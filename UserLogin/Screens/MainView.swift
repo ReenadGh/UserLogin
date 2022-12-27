@@ -14,13 +14,19 @@ struct MainView: View {
     var body: some View {
         
         if (isSplashViewActive){
+<<<<<<< HEAD
             
+=======
+>>>>>>> mvvm-enhancing
             SplashView(isActive: $isSplashViewActive)
         }else if firebaseUserManger.isUserLoggedin() {
             
             HomeView()
         }else {
+<<<<<<< HEAD
             
+=======
+>>>>>>> mvvm-enhancing
             LogInView()
         }
     }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LogInView: View {
+<<<<<<< HEAD
     @State var mail : String = ""
     @State var phone : String = ""
     @State var password : String = ""
@@ -15,6 +16,10 @@ struct LogInView: View {
 
     @EnvironmentObject var firebaseUserManger : FirebaseUserManager
 
+=======
+
+    @StateObject var  vm  : FirebaseLogInManager = FirebaseLogInManager()
+>>>>>>> mvvm-enhancing
     var body: some View {
         
         
@@ -22,6 +27,7 @@ struct LogInView: View {
             
             Text("Log In")
                 .font(.largeTitle)
+<<<<<<< HEAD
             MailTextFiledView(mail: $mail)
             PasswordTextFiledView(password: $password)
             
@@ -38,6 +44,15 @@ struct LogInView: View {
                  
                     }
                 }
+=======
+            MailTextFiledView()
+            PasswordTextFiledView()
+            Text("Or by phone number")
+             PhoneTextFiledView()
+            
+            Button {
+                vm.logInToAccount()
+>>>>>>> mvvm-enhancing
             } label: {
                 Text("Log In")
                     .padding()
@@ -48,7 +63,11 @@ struct LogInView: View {
             }
             
             
+<<<<<<< HEAD
             LogInStateView(loadingState: $firebaseUserManger.loadingState)
+=======
+            LogInStateView(loadingState: $vm.loadingState)
+>>>>>>> mvvm-enhancing
             
  
         }
@@ -56,28 +75,48 @@ struct LogInView: View {
         .overlay(
             ZStack {
     
+<<<<<<< HEAD
        if let verificationID = verificationID {
         codeAddingView(verificationID: verificationID)
+=======
+                if let verificationID = vm.verificationID {
+                    codeAddingView()
+>>>>>>> mvvm-enhancing
                     
                 }
             }
             
         )
+<<<<<<< HEAD
+=======
+        
+        .environmentObject(vm)
+>>>>>>> mvvm-enhancing
     }
 }
 
 struct LogInView_Previews: PreviewProvider {
     static var previews: some View {
         LogInView()
+<<<<<<< HEAD
             .environmentObject(FirebaseUserManager())
         
+=======
+            .environmentObject(FirebaseLogInManager())
+            .environmentObject(FirebaseUserManager())
+
+>>>>>>> mvvm-enhancing
         
         LogInStateView(loadingState: .constant(.loading))
             .padding()
             .previewLayout(.sizeThatFits)
         
         
+<<<<<<< HEAD
         MailTextFiledView(mail: .constant("test@test.com"))
+=======
+        MailTextFiledView()
+>>>>>>> mvvm-enhancing
             .padding()
             .previewLayout(.sizeThatFits)
         
@@ -85,11 +124,19 @@ struct LogInView_Previews: PreviewProvider {
 }
 
 struct MailTextFiledView: View {
+<<<<<<< HEAD
     @Binding var mail : String
 
     var body: some View {
         HStack {
             TextField("enter mail" , text: $mail)
+=======
+    @EnvironmentObject var  vm  : FirebaseLogInManager
+
+    var body: some View {
+        HStack {
+            TextField("enter mail" , text: $vm.mail)
+>>>>>>> mvvm-enhancing
                 .padding()
             
         }
@@ -101,13 +148,22 @@ struct MailTextFiledView: View {
 }
 
 struct PhoneTextFiledView: View {
+<<<<<<< HEAD
     @Binding var phone : String
+=======
+    
+    @EnvironmentObject var  vm  : FirebaseLogInManager
+>>>>>>> mvvm-enhancing
 
     var body: some View {
         HStack (spacing : 0){
             Text("+966")
                 .foregroundColor(.black).bold()
+<<<<<<< HEAD
             TextField("phone" , text: $phone)
+=======
+            TextField("phone" , text: $vm.phone)
+>>>>>>> mvvm-enhancing
                 .keyboardType(.numberPad)
                 .padding()
         }
@@ -121,11 +177,19 @@ struct PhoneTextFiledView: View {
 }
 
 struct PasswordTextFiledView: View {
+<<<<<<< HEAD
     @Binding var password : String
 
     var body: some View {
         HStack {
             SecureField("enter password" , text: $password)
+=======
+    @EnvironmentObject var  vm  : FirebaseLogInManager
+
+    var body: some View {
+        HStack {
+            SecureField("enter password" , text: $vm.password)
+>>>>>>> mvvm-enhancing
                 .padding()
             
         }
